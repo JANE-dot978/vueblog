@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="comments-page">
     <header class="comments-hero">
       <h1>💬 User Comments</h1>
@@ -484,4 +484,4 @@ export default {
   font-style: italic;
   line-height: 1.5;
 }
-</style> -->
+</style>

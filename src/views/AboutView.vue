@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="about">
     <!-- Hero Section -->
     <header class="about-hero">
@@ -199,4 +199,4 @@ export default {
   background: #ffdd99;
   color: #5a2d0c;
 }
-</style> -->
+</style>

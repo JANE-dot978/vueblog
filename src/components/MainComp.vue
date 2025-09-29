@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="blogs">
     
     <div v-if="view === 'landing'" class="landing">
@@ -316,4 +316,4 @@ export default {
 .back-btn:hover {
   background: #333;
 }
-</style> -->
+</style>

@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="contact">
     <!-- Hero Section -->
     <header class="contact-hero">
@@ -190,4 +190,4 @@ export default {
 .submit-btn:hover {
   background: #5a2d0c;
 }
-</style> -->
+</style>

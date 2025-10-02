@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      theme: localStorage.getItem("theme") || "light", // default theme
+      theme: localStorage.getItem("theme") || "light", 
     };
   },
   methods: {
@@ -49,13 +49,13 @@ export default {
   color: #222;
 }
 
-/* Dark Mode */
+
 .app-container.dark {
   background: #1e1e1e;
   color: #f1f1f1;
 }
 
-/* Sepia Mode */
+
 .app-container.sepia {
   background: blue;
   color: #4b3832;

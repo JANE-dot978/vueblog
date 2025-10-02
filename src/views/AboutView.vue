@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style scoped>
-/* ---------- HERO ---------- */
+
 .about-hero {
   position: relative;
   height: 70vh;

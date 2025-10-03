@@ -88,21 +88,31 @@ mounted() {
   <div class="products">
     <h1 class="page-title">🛒 Fake Store Products</h1>
 
-    <!-- Show loading (cool dashed circular spinner) -->
+    <!-- 🔍 Live Search -->
+    <div style="text-align:center; margin-bottom:20px;">
+      <input
+        type="text"
+        v-model="searchQuery"
+        placeholder="Search products..."
+        style="padding:8px 12px; border:1px solid #ccc; border-radius:6px; width:250px;"
+      />
+    </div>
+
+    <!-- Loading -->
     <div v-if="loading" class="loading" role="status" aria-live="polite">
       <div class="spinner" aria-hidden="true"></div>
       <div class="loading-text">⏳ Loading products...</div>
     </div>
 
-    <!-- Show error -->
+    <!-- Error -->
     <div v-if="error" class="error">
       ❌ {{ error }}
       <button @click="fetchProducts" class="retry-btn">Retry</button>
     </div>
 
-    <!-- Show products only when loaded -->
+    <!-- Product Grid -->
     <div v-if="!loading && !error" class="product-grid">
-      <div v-for="product in products" :key="product.id" class="product-card">
+      <div v-for="product in filteredProducts" :key="product.id" class="product-card">
         <img :src="product.image" :alt="product.title" class="product-img" />
         <h2>{{ product.title }}</h2>
         <p class="desc">{{ product.description.substring(0, 100) }}...</p>
@@ -111,6 +121,14 @@ mounted() {
         <p class="rating">⭐ {{ product.rating.rate }} ({{ product.rating.count }} reviews)</p>
       </div>
     </div>
+
+    <!-- No Results -->
+    <p
+      v-if="!loading && !error && filteredProducts.length === 0"
+      style="text-align:center; margin-top:20px; font-size:1.1rem; color:#7f8c8d;"
+    >
+      ❌ No products found for "{{ searchQuery }}"
+    </p>
   </div>
 </template>
 
@@ -122,10 +140,23 @@ export default {
       products: [],
       loading: false,
       error: null,
+      searchQuery: "", // live search input
     };
   },
   mounted() {
     this.fetchProducts();
+  },
+  computed: {
+    filteredProducts() {
+      if (!this.searchQuery) return this.products;
+      const q = this.searchQuery.toLowerCase();
+      return this.products.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q)
+      );
+    },
   },
   methods: {
     async fetchProducts() {
@@ -153,7 +184,7 @@ export default {
 </script>
 
 <style scoped>
-/* page title */
+
 .page-title {
   text-align: center;
   margin: 30px 0;
@@ -207,14 +238,14 @@ export default {
   }
 }
 
-/* loading text styling */
+
 .loading-text {
   font-size: 1rem;
   color: #5a2d0c;
   font-weight: 600;
 }
 
-/* ---------- ERROR & RETRY ---------- */
+
 .error {
   text-align: center;
   font-size: 1.1rem;
@@ -236,7 +267,7 @@ export default {
   background: #217dbb;
 }
 
-/* ---------- PRODUCT GRID (unchanged) ---------- */
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

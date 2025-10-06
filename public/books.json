@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A practical guide on how to build good habits, break bad ones, and master tiny behaviors that lead to remarkable results.",
+    "price": 15.99,
+    "category": "Self-help",
+    "image": "https://covers.openlibrary.org/b/id/9259251-L.jpg",
+    "rating": { "rate": 4.9, "count": 1200 }
+  },
+  {
+    "id": 2,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt, David Thomas",
+    "description": "Classic programming book that covers essential software development practices, from coding techniques to career advice.",
+    "price": 39.99,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
+    "rating": { "rate": 4.8, "count": 980 }
+  },
+  {
+    "id": 3,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A handbook of agile software craftsmanship teaching how to write cleaner, more maintainable code.",
+    "price": 29.95,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/7109861-L.jpg",
+    "rating": { "rate": 4.7, "count": 870 }
+  },
+  {
+    "id": 4,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "description": "Rules for focused success in a distracted world. Explains how to cultivate concentration and deep focus.",
+    "price": 18.99,
+    "category": "Self-help",
+    "image": "https://covers.openlibrary.org/b/id/8370226-L.jpg",
+    "rating": { "rate": 4.6, "count": 1500 }
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "description": "Comprehensive guide to modern algorithms with detailed explanations and pseudocode.",
+    "price": 89.99,
+    "category": "Computer Science",
+    "image": "https://covers.openlibrary.org/b/id/8231994-L.jpg",
+    "rating": { "rate": 4.5, "count": 450 }
+  },
+  {
+    "id": 6,
+    "title": "You Don’t Know JS Yet",
+    "author": "Kyle Simpson",
+    "description": "In-depth series on core mechanisms of JavaScript programming language.",
+    "price": 24.99,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/10596756-L.jpg",
+    "rating": { "rate": 4.8, "count": 720 }
+  },
+  {
+    "id": 7,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "description": "Timeless lessons on wealth, greed, and happiness with powerful storytelling.",
+    "price": 16.50,
+    "category": "Finance",
+    "image": "https://covers.openlibrary.org/b/id/10690368-L.jpg",
+    "rating": { "rate": 4.7, "count": 2000 }
+  },
+  {
+    "id": 8,
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell, Peter Norvig",
+    "description": "Definitive guide to AI concepts, methods, and applications.",
+    "price": 99.99,
+    "category": "Artificial Intelligence",
+    "image": "https://covers.openlibrary.org/b/id/8231851-L.jpg",
+    "rating": { "rate": 4.6, "count": 610 }
+  },
+  {
+    "id": 1,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A practical guide on how to build good habits, break bad ones, and master tiny behaviors that lead to remarkable results.",
+    "price": 15.99,
+    "category": "Self-help",
+    "image": "https://covers.openlibrary.org/b/id/9259251-L.jpg",
+    "rating": { "rate": 4.9, "count": 1200 }
+  },
+  {
+    "id": 2,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt, David Thomas",
+    "description": "Classic programming book that covers essential software development practices, from coding techniques to career advice.",
+    "price": 39.99,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
+    "rating": { "rate": 4.8, "count": 980 }
+  },
+  {
+    "id": 3,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A handbook of agile software craftsmanship teaching how to write cleaner, more maintainable code.",
+    "price": 29.95,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/7109861-L.jpg",
+    "rating": { "rate": 4.7, "count": 870 }
+  },
+  {
+    "id": 4,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "description": "Rules for focused success in a distracted world. Explains how to cultivate concentration and deep focus.",
+    "price": 18.99,
+    "category": "Self-help",
+    "image": "https://covers.openlibrary.org/b/id/8370226-L.jpg",
+    "rating": { "rate": 4.6, "count": 1500 }
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "description": "Comprehensive guide to modern algorithms with detailed explanations and pseudocode.",
+    "price": 89.99,
+    "category": "Computer Science",
+    "image": "https://covers.openlibrary.org/b/id/8231994-L.jpg",
+    "rating": { "rate": 4.5, "count": 450 }
+  },
+  {
+    "id": 6,
+    "title": "You Don’t Know JS Yet",
+    "author": "Kyle Simpson",
+    "description": "In-depth series on core mechanisms of JavaScript programming language.",
+    "price": 24.99,
+    "category": "Programming",
+    "image": "https://covers.openlibrary.org/b/id/10596756-L.jpg",
+    "rating": { "rate": 4.8, "count": 720 }
+  },
+  {
+    "id": 7,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "description": "Timeless lessons on wealth, greed, and happiness with powerful storytelling.",
+    "price": 16.50,
+    "category": "Finance",
+    "image": "https://covers.openlibrary.org/b/id/10690368-L.jpg",
+    "rating": { "rate": 4.7, "count": 2000 }
+  },
+  {
+    "id": 8,
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell, Peter Norvig",
+    "description": "Definitive guide to AI concepts, methods, and applications.",
+    "price": 99.99,
+    "category": "Artificial Intelligence",
+    "image": "https://covers.openlibrary.org/b/id/8231851-L.jpg",
+    "rating": { "rate": 4.6, "count": 610 }
+  },
+  {
+    "id": 9,
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "description": "Personal finance classic comparing two approaches to money and investing.",
+    "price": 12.99,
+    "category": "Finance",
+    "image": "https://covers.openlibrary.org/b/id/240726-L.jpg",
+    "rating": { "rate": 4.5, "count": 3400 }
+  },
+  {
+    "id": 10,
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "description": "Explores the history and impact of Homo sapiens from ancient times to modern society.",
+    "price": 22.99,
+    "category": "History",
+    "image": "https://covers.openlibrary.org/b/id/8372436-L.jpg",
+    "rating": { "rate": 4.8, "count": 5100 }
+  },
+  {
+    "id": 11,
+    "title": "Educated",
+    "author": "Tara Westover",
+    "description": "A memoir about growing up in a strict survivalist family and the struggle for education.",
+    "price": 14.99,
+    "category": "Memoir",
+    "image": "https://covers.openlibrary.org/b/id/8372206-L.jpg",
+    "rating": { "rate": 4.7, "count": 2900 }
+  },
+  {
+    "id": 12,
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "description": "A counterintuitive approach to living a good life by focusing on what really matters.",
+    "price": 17.99,
+    "category": "Self-help",
+    "image": "https://covers.openlibrary.org/b/id/8372210-L.jpg",
+    "rating": { "rate": 4.4, "count": 4100 }
+  }
+]

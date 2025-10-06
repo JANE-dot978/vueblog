@@ -84,11 +84,11 @@ mounted() {
   line-height: 1.5;
 }
 </style> -->
-<template>
+<!-- <template>
   <div class="products">
     <h1 class="page-title">🛒 Fake Store Products</h1>
 
-    <!-- 🔍 Live Search -->
+    
     <div style="text-align:center; margin-bottom:20px;">
       <input
         type="text"
@@ -98,19 +98,19 @@ mounted() {
       />
     </div>
 
-    <!-- Loading -->
+    
     <div v-if="loading" class="loading" role="status" aria-live="polite">
       <div class="spinner" aria-hidden="true"></div>
       <div class="loading-text">⏳ Loading products...</div>
     </div>
 
-    <!-- Error -->
+    
     <div v-if="error" class="error">
       ❌ {{ error }}
       <button @click="fetchProducts" class="retry-btn">Retry</button>
     </div>
 
-    <!-- Product Grid -->
+    
     <div v-if="!loading && !error" class="product-grid">
       <div v-for="product in filteredProducts" :key="product.id" class="product-card">
         <img :src="product.image" :alt="product.title" class="product-img" />
@@ -122,7 +122,7 @@ mounted() {
       </div>
     </div>
 
-    <!-- No Results -->
+    
     <p
       v-if="!loading && !error && filteredProducts.length === 0"
       style="text-align:center; margin-top:20px; font-size:1.1rem; color:#7f8c8d;"
@@ -140,7 +140,7 @@ export default {
       products: [],
       loading: false,
       error: null,
-      searchQuery: "", // live search input
+      searchQuery: "", 
     };
   },
   mounted() {
@@ -310,6 +310,232 @@ export default {
 .category {
   font-size: 0.85rem;
   color: #888;
+}
+
+.rating {
+  font-size: 0.85rem;
+  color: #f39c12;
+}
+</style> -->
+<template>
+  <div class="products">
+    <h1 class="page-title">📚 Book Store</h1>
+
+    <!-- 🔍 Live Search -->
+    <div style="text-align:center; margin-bottom:20px;">
+      <input
+        type="text"
+        v-model="searchQuery"
+        placeholder="Search books..."
+        style="padding:8px 12px; border:1px solid #ccc; border-radius:6px; width:250px;"
+      />
+    </div>
+
+    <!-- Loading -->
+    <div v-if="loading" class="loading" role="status" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="loading-text">⏳ Loading books...</div>
+    </div>
+
+    <!-- Error -->
+    <div v-if="error" class="error">
+      ❌ {{ error }}
+      <button @click="fetchBooks" class="retry-btn">Retry</button>
+    </div>
+
+    <!-- Book Grid -->
+    <div v-if="!loading && !error" class="product-grid">
+      <div v-for="book in filteredBooks" :key="book.id" class="product-card">
+        <img :src="book.image" :alt="book.title" class="product-img" />
+        <h2>{{ book.title }}</h2>
+        <p class="desc">{{ book.description.substring(0, 100) }}...</p>
+        <p class="price">💵 ${{ book.price }}</p>
+        <p class="category">📂 {{ book.category }}</p>
+        <p class="author">✍️ {{ book.author }}</p>
+        <p class="rating">⭐ {{ book.rating.rate }} ({{ book.rating.count }} reviews)</p>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <p
+      v-if="!loading && !error && filteredBooks.length === 0"
+      style="text-align:center; margin-top:20px; font-size:1.1rem; color:#7f8c8d;"
+    >
+      ❌ No books found for "{{ searchQuery }}"
+    </p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "BooksView",
+  data() {
+    return {
+      books: [],
+      loading: false,
+      error: null,
+      searchQuery: "" // live search input
+    };
+  },
+  mounted() {
+    this.fetchBooks();
+  },
+  computed: {
+    filteredBooks() {
+      if (!this.searchQuery) return this.books;
+      const q = this.searchQuery.toLowerCase();
+      return this.books.filter(
+        (b) =>
+          b.title.toLowerCase().includes(q) ||
+          b.description.toLowerCase().includes(q) ||
+          b.category.toLowerCase().includes(q) ||
+          (b.author && b.author.toLowerCase().includes(q))
+      );
+    }
+  },
+  methods: {
+    async fetchBooks() {
+      this.loading = true;
+      this.error = null;
+
+      try {
+        const res = await fetch("/books.json"); // ✅ from public folder
+        if (!res.ok) throw new Error(`Failed to fetch books. Status: ${res.status}`);
+
+        const data = await res.json();
+        this.books = data;
+      } catch (err) {
+        this.error = "⚠️ Could not load books. Please try again.";
+        console.error("Error fetching books:", err);
+      } finally {
+        this.loading = false;
+      }
+    }
+  }
+};
+</script>
+
+<style scoped>
+.page-title {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 24px 0;
+  flex-direction: column;
+}
+
+.spinner {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+  border: 6px dashed rgba(139, 69, 19, 0.85);
+  background: conic-gradient(from 0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  display: inline-block;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12), inset 0 2px 6px rgba(255,255,255,0.02);
+  transform-origin: center;
+}
+
+.spinner::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 1rem;
+  color: #5a2d0c;
+  font-weight: 600;
+}
+
+.error {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #e74c3c;
+  margin: 20px 0;
+}
+
+.retry-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #3498db;
+  color: #fff;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background: #217dbb;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #27ae60;
+}
+
+.category {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.author {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
 }
 
 .rating {

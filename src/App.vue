@@ -7,24 +7,29 @@
     <div class="theme-switcher">
       <button @click="setTheme('light')">🌞 Light</button>
       <button @click="setTheme('dark')">🌙 Dark</button>
-      <button @click="setTheme('sepia')">📖 blue</button>
+      <button @click="setTheme('sepia')">📖 Blue</button>
     </div>
 
     <!-- Page Content -->
     <router-view />
+
+    <!-- ✅ Global Footer -->
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import NavbarComp from "./components/NavbarComp.vue";
+import AppFooter from "./components/FooterComp.vue"; // ✅ Import footer
 
 export default {
   components: {
     NavbarComp,
+    AppFooter, // ✅ Register footer
   },
   data() {
     return {
-      theme: localStorage.getItem("theme") || "light", 
+      theme: localStorage.getItem("theme") || "light",
     };
   },
   methods: {
@@ -40,6 +45,9 @@ export default {
 /* Default styling */
 .app-container {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* ✅ Makes footer stick at bottom */
+  justify-content: space-between;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -49,16 +57,14 @@ export default {
   color: #222;
 }
 
-
 .app-container.dark {
   background: #1e1e1e;
   color: #f1f1f1;
 }
 
-
 .app-container.sepia {
   background: blue;
-  color: #4b3832;
+  color: #fff;
 }
 
 /* Theme Switcher Styling */

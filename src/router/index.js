@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import MainComp from "../views/HomeView.vue";
 import AboutComp from "../views/AboutView.vue";
 import HomeView from "../views/HomeView.vue";
-import CommentsView from "../views/CommentsView.vue";
+import BooksView from "../views/BooksView.vue";
 import ContactView from "../views/ContactView.vue";
 
 const routes = [
@@ -25,9 +25,9 @@ const routes = [
 
   },
   {
-    path: "/comments",
-    name: "/Comments",
-    component: CommentsView,
+    path: "/books",
+    name: "/Books",
+    component: BooksView,
   },
 ];
 

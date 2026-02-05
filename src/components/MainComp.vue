@@ -8,6 +8,7 @@
         <button @click="view = 'categories'" class="explore-btn">Explore</button>
       </div>
     </div>
+    
 
     
     <div v-else-if="view === 'categories'" class="categories">
@@ -24,6 +25,7 @@
       </div>
       <button @click="view = 'landing'" class="back-btn">⬅ Back</button>
     </div>
+    
 
     
     <div v-else-if="view === 'blogs'" class="blog-section">
